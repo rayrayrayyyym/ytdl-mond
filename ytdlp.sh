@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #set variables
-dlDirectory=C:\Users\mondy\Desktop\Project_Chii\Videos
+dlDirectory=Videos
 fileNameFormat=
 
 #start ytdlp
@@ -22,7 +22,8 @@ read -p "Proceed to Download?[y/n]: " -n 1 -r
 echo 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    yt-dlp --live-from-start %URL% -P "%dlDirectory%" --merge-output-format mp4 -o "%(upload_date>%Y)s\%(upload_date>%Y-%m-%d)s %(title)s.%(ext)s"
+    echo "Downloading to $dlDirectory"
+    ./yt-dlp_linux --live-from-start $URL -P "$dlDirectory" --merge-output-format mp4 -o "%(upload_date>%Y)s/%(upload_date>%Y-%m-%d)s %(title)s.%(ext)s"
 fi
 
 #sample vid
