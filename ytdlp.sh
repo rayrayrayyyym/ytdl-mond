@@ -23,7 +23,7 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo "Downloading to $dlDirectory"
-    ./yt-dlp_linux --live-from-start $URL -P "$dlDirectory" --merge-output-format mp4 -o "%(upload_date>%Y)s/%(upload_date>%Y-%m-%d)s %(title)s.%(ext)s" --sleep-interval 2
+    ./yt-dlp_linux --live-from-start $URL -P "$dlDirectory" --merge-output-format mp4 -o "%(upload_date>%Y)s/%(upload_date>%Y-%m-%d)s %(title)s.%(ext)s" --sleep-requests 5 --sleep-interval 2 --max-sleep-interval 30
 fi
 
 #sample vid
